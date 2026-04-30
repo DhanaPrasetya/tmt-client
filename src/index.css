@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+	--font-sans: "Josefin Sans", sans-serif;
+	--font-josefin-sans: "Josefin Sans", sans-serif;
+	--font-montserrat: "Montserrat", sans-serif;
+	--font-quicksand: "Quicksand", sans-serif;
+}
+
+/* Set global font */
+@layer base {
+	body {
+		font-family: var(--font-sans);
+		background-color: #f4f4f4;
+	}
+	a {
+		text-decoration: none;
+		color: inherit; /* keeps the color of the surrounding text */
+		transition: all 0.3s ease;
+		outline: none;
+	}
+
+	/* The glow happens here */
+	a:hover,
+	a:focus-visible {
+		color: #f4f4f4; /* Change to your primary glow color */
+		text-shadow: 0 0 8px #f4f4f4;
+		/* If you want a box glow instead: */
+		/* box-shadow: 0 0 10px #00d2ff; */
+	}
+}
