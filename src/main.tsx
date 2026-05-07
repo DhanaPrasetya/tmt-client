@@ -17,7 +17,7 @@ const router = createBrowserRouter([
 		element: <About />,
 	},
 	{
-		path: "/*",
+		path: "/:alias",
 		element: <Redirect />,
 	},
 	{

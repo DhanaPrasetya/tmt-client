@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../../assets/tmt_logo_no_bg.png";
 
 const Header = () => {
