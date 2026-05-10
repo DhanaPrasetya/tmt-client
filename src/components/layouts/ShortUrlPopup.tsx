@@ -10,8 +10,10 @@ interface InputProps {
 const ShortUrlPopup = ({ url, onClose }: InputProps) => {
 	const [copied, setCopied] = useState(false);
 
+	const domainUrl = `${import.meta.env.VITE_DOMAIN}/${url}`;
+
 	const handleCopy = async () => {
-		await navigator.clipboard.writeText(url as string);
+		await navigator.clipboard.writeText(domainUrl);
 		setCopied(true);
 
 		// Reset the button text after 2 seconds
@@ -28,7 +30,7 @@ const ShortUrlPopup = ({ url, onClose }: InputProps) => {
 				X
 			</button>
 			<div className="p-3 bg-[#D9D9D9] rounded-xl w-lg flex flex-col m-10 text-center break-all">
-				<ShortUrlAnchor>{url}</ShortUrlAnchor>
+				<ShortUrlAnchor>{domainUrl}</ShortUrlAnchor>
 			</div>
 			<button
 				onClick={handleCopy}

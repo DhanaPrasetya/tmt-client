@@ -7,14 +7,21 @@ import type {
 const API_URL = import.meta.env.VITE_API_URL;
 
 const getOriginalUrl = async (
-	shortUrl: string,
+	customAlias: string,
 ): Promise<StandarizedResponse> => {
 	try {
-		const response = await axios.get(`${API_URL}/?short_url=${shortUrl}`);
+		const response = await axios.get(`${API_URL}/?custom_alias=${customAlias}`);
 		return response.data as StandarizedResponse;
 	} catch (err) {
 		console.error(err);
-		throw new Error("Failed to fetch original URL");
+		// Preserve the status code in the error
+		const error = new Error("Failed to fetch original URL") as Error & {
+			status?: number;
+		};
+		if (axios.isAxiosError(err)) {
+			error.status = err.response?.status;
+		}
+		throw error;
 	}
 };
 

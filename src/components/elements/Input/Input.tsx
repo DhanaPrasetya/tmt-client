@@ -6,9 +6,17 @@ interface InputProps {
 	placeholder: string;
 	value: string;
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+	onBlur?: () => void;
 }
 
-const Input = ({ name, type, placeholder, value, onChange }: InputProps) => {
+const Input = ({
+	name,
+	type,
+	placeholder,
+	value,
+	onChange,
+	onBlur,
+}: InputProps) => {
 	return (
 		<input
 			name={name}
@@ -18,6 +26,7 @@ const Input = ({ name, type, placeholder, value, onChange }: InputProps) => {
 			placeholder={placeholder}
 			value={value}
 			onChange={onChange}
+			onBlur={onBlur}
 		/>
 	);
 };
